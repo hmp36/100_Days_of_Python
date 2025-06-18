@@ -9,6 +9,12 @@ h1 {
 h2 {
     color: #f0f3f4;
 }
+h3 {
+    color: #f0f3f4;
+}
+nav {
+    margin-top: 30px;
+}
 nav a {
     margin-right: 15px;
     text-decoration: none;
