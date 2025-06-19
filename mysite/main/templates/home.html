@@ -1,11 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('styles.css' %}">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <button onclick="greet()">Greet</button>
-</head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+   </head>
 <body>
     <nav>
         <a href="/">Home</a>
@@ -27,6 +26,6 @@
         <li>Reliable support</li>
         <li>Innovative approach</li>
     </ul>
-    <img src="{{ url_for('static', filename='team.jpg') }}" alt="Our Team" style="max-width: 300px; display: block; margin: 30px auto;">
-</body>
+    <img src="{% static '/team.jpg' %}" alt="Our Team" style="max-width: 300px; display: block; margin: 30px auto;">
+  </body>
 </html>
