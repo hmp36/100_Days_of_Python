@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to Our Site</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <button onclick="greet()">Greet</button>
 </head>
@@ -13,7 +14,7 @@
         <a href="/services">Services</a>
         <a href="/contact">Contact</a>
     </nav>
-    <h1>Welcome to Our Website!</h1>
+    <h1>Welcome to the Home Page!</h1>
     <div class="intro">
         <p>
             We provide top-notch web development, design, and consulting services.<br>
@@ -28,6 +29,5 @@
         <li>Innovative approach</li>
     </ul>
     <img src="{{ url_for('static', filename='team.jpg') }}" alt="Our Team" style="max-width: 300px; display: block; margin: 30px auto;">
-    
 </body>
 </html>

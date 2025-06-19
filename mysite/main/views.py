@@ -1,11 +1,13 @@
-from django.contrib import admin
-from django.urls import path, include
 from django.shortcuts import render
 
 def home(request):
     return render(request, 'home.html')
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('main.urls')),  # This line includes all URLs from your app
-]
+def about(request):
+    return render(request, 'about.html')
+
+def services(request):
+    return render(request, 'services.html')
+
+def contact(request):
+    return render(request, 'contact.html')
