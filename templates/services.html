@@ -1,0 +1,49 @@
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Services</title>
+  
+</head>
+<body>
+    <h1>Our Services</h1>
+    <ul>
+        <li>Web Development</li>
+        <li>App Design</li>
+        <li>Consulting</li>
+        <li>Technical Support</li>
+    </ul>
+    
+
+    <button onclick="showQuote()">Show Random Quote</button>
+    <p id="quote"></p>
+    <script>
+    const quotes = [
+        "The best way to get started is to quit talking and begin doing.",
+        "Success is not in what you have, but who you are.",
+        "Opportunities don't happen, you create them.",
+        "Dream bigger. Do bigger.",
+        "Don't watch the clock; do what it does. Keep going.",
+        "The future belongs to those who believe in the beauty of their dreams.",
+        "It does not matter how slowly you go as long as you do not stop.",
+        "You are never too old to set another goal or to dream a new dream.",
+        "Some days are Diamonds; some days are Rocks.",
+        "The only limit to our realization of tomorrow will be our doubts of today.",
+        "Act as if what you do makes a difference. It does.",
+        "Success usually comes to those who are too busy to be looking for it.",
+        "Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.",    
+    ];
+    function showQuote() {
+        const q = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById('quote').textContent = q;
+    }
+    </script>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</body>
+</html>
