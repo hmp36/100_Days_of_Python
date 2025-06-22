@@ -17,7 +17,9 @@ def contact(request):
 def dashboard(request):
     message_count = Message.objects.count()
     user_count = User.objects.count()
+    recent_messages = Message.objects.order_by('-created_at')[:5]  # latest 5 messages
     return render(request, 'dashboard.html', {
         'message_count': message_count,
         'user_count': user_count,
+        'recent_messages': recent_messages,
     })

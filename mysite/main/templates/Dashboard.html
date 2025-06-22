@@ -12,6 +12,18 @@
         <li>Total Users: {{ user_count }}</li>
         <li>Total Messages: {{ message_count }}</li>
     </ul>
+    <h2>Recent Messages</h2>
+    <ul>
+        {% for msg in recent_messages %}
+            <li>
+                <strong>{{ msg.name }}</strong> ({{ msg.email }})<br>
+                {{ msg.content|truncatechars:50 }}<br>
+                <em>{{ msg.created_at }}</em>
+            </li>
+        {% empty %}
+            <li>No messages yet.</li>
+        {% endfor %}
+    </ul>
     <a href="/">Back to Home</a>
 </body>
 </html>
