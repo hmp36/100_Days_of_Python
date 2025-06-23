@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +32,7 @@
         <a href="/about">About</a>
         <a href="/services">Services</a>
         <a href="/contact">Contact</a>
+        <a href="{% url 'logout' %}">Logout</a>
     </nav>
     <button onclick="document.body.style.backgroundColor = '#a5e37c';">
         Change Background Color

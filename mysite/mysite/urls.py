@@ -17,7 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from main import views  # Make sure this import is present
+# from main import views  # Make sure this import is present
+try:
+    from main import views  # Make sure this import is present
+except ModuleNotFoundError:
+    # Fallback: handle missing 'main' app gracefully
+    views = None
 
 urlpatterns = [
     path('admin/', admin.site.urls),

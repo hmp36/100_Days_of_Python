@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Message
 from django.contrib.auth.models import User
 from .forms import MessageForm
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
@@ -18,7 +18,6 @@ def contact(request):
     return render(request, 'contact.html')
 
 @login_required
-@user_passes_test(lambda u: u.is_superuser or u.is_staff)
 def dashboard(request):
     message_count = Message.objects.count()
     user_count = User.objects.count()
