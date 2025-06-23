@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Message
 from django.contrib.auth.models import User
 from .forms import MessageForm
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
     return render(request, 'home.html')
@@ -14,14 +15,7 @@ def services(request):
     return render(request, 'services.html')
 
 def contact(request):
-    if request.method == 'POST':
-        form = MessageForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'contact.html', {'form': MessageForm(), 'success': True})
-    else:
-        form = MessageForm()
-    return render(request, 'contact.html', {'form': form})
+    return render(request, 'contact.html')
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser or u.is_staff)
@@ -34,3 +28,13 @@ def dashboard(request):
         'user_count': user_count,
         'recent_messages': recent_messages,
     })
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})

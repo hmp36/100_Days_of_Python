@@ -17,15 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from . import views
-
+from main import views  # Add this import at the top
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
-    path('services/', views.services, name='services'),
-    path('contact/', views.contact, name='contact'),
+    path('register/', views.register, name='register'),
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),  # <-- Add this line
-    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),  # <-- Add this line
+    path('about/', views.about, name='about'),  # <-- Add this line
+    path('services/', views.services, name='services'),  # <-- Add this line
+    path('contact/', views.contact, name='contact'),  # <-- Add this line
+    # other app-specific URLs
 ]
