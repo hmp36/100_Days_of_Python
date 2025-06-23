@@ -1,67 +1,11 @@
 <!-- filepath: templates/contact.html -->
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-     <script src="{% static 'script.js' %}"></script>
-</head>
-<body>
-    <h1>Contact Us</h1>
-    {% if success %}
-        <p style="color:green;">Your message has been sent!</p>
-    {% endif %}
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Contact Us</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Send</button>
     </form>
     <a href="/">Back to Home</a>
-</body>
-</html>
-
-<!-- filepath: templates/services.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Services Page</title>
-</head>
-<body>
-    <h1>Our Services</h1>
-    <p>Details about services offered.</p>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/services">Services</a>
-        <a href="/contact">Contact</a>
-        <a href="{% url 'logout' %}">Logout</a>
-    </nav>
-
-    <!-- Place this where you want the counter to appear -->
-    <div>
-        <h2>Projects Completed: <span id="counter">0</span></h2>
-    </div>
-
-    <script>
-    function animateCounter(id, target, duration) {
-        const element = document.getElementById(id);
-        let start = 0;
-        const increment = target / (duration / 16); // 16ms per frame (approx 60fps)
-        function update() {
-            start += increment;
-            if (start < target) {
-                element.textContent = Math.floor(start);
-                requestAnimationFrame(update);
-            } else {
-                element.textContent = target;
-            }
-        }
-        update();
-    }
-    window.onload = function() {
-        animateCounter('counter', 151672,5000); // Counts to 150,000 in 5 seconds
-    };
-    </script>
-</body>
-</html>
+{% endblock %}
