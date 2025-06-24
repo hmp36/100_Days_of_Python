@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}My Site{% endblock %}</title>
+    <title>My Awesome Django Site</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
@@ -18,5 +18,8 @@
     </nav>
     <hr>
     {% block content %}{% endblock %}
+    <footer>
+        <p>&copy; {{ now|date:"Y" }} Your Name</p>
+    </footer>
 </body>
 </html>
