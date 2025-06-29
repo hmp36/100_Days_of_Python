@@ -29,5 +29,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),  # <-- Add this line
     path('services/', views.services, name='services'),  # <-- Add this line
     path('contact/', views.contact, name='contact'),  # <-- Add this line
+    path('faq/', views.faq, name='faq'),  # <-- Add this line
     # other app-specific URLs
 ]

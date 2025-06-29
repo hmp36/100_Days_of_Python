@@ -53,3 +53,6 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+def faq(request):
+    return render(request, 'faq.html')
