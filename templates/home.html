@@ -1,10 +1,10 @@
-    {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{% static 'script.js' %}"></script>
     <button onclick="greet()">Greet</button>
 </head>
 <body>
@@ -28,7 +28,7 @@
         <li>Reliable support</li>
         <li>Innovative approach</li>
     </ul>
-    <img src="{{ url_for('static', filename='team.jpg') }}" alt="Our Team" style="max-width: 300px; display: block; margin: 30px auto;">
+    <img src="{% static 'team.jpg' %}" alt="Our Team" style="max-width: 300px; display: block; margin: 30px auto;">
     <img src="{% static 'logo.png' %}" alt="Site Logo">
 </body>
 </html>
