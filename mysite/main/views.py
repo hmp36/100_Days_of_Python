@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .forms import MessageForm, ContactForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.http import JsonResponse
 
 def home(request):
     return render(request, 'home.html')
@@ -56,3 +57,10 @@ def register(request):
 
 def faq(request):
     return render(request, 'faq.html')
+
+def api_greeting(request):
+    data = {
+        "message": "Hello from your Django API!",
+        "status": "success"
+    }
+    return JsonResponse(data)

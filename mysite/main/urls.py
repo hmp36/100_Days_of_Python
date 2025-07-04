@@ -30,5 +30,6 @@ urlpatterns = [
     path('services/', views.services, name='services'),  # <-- Add this line
     path('contact/', views.contact, name='contact'),  # <-- Add this line
     path('faq/', views.faq, name='faq'),  # <-- Add this line
+    path('api/greeting/', views.api_greeting, name='api_greeting'),  # <-- Add this line
     # other app-specific URLs
 ]
