@@ -59,8 +59,9 @@ def faq(request):
     return render(request, 'faq.html')
 
 def api_greeting(request):
+    name = request.GET.get('name', 'friend')
     data = {
-        "message": "Hello from your Django API!",
+        "message": f"Hello, {name}!",
         "status": "success"
     }
     return JsonResponse(data)
