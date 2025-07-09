@@ -6,6 +6,7 @@ from .forms import MessageForm, ContactForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import JsonResponse
+from django.core import serializers
 
 def home(request):
     return render(request, 'home.html')
@@ -65,3 +66,7 @@ def api_greeting(request):
         "status": "success"
     }
     return JsonResponse(data)
+
+def api_messages(request):
+    messages = Message.objects.all().values()  # Use .values() for easier JSON serialization
+    return JsonResponse(list(messages), safe=False)
