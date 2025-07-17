@@ -37,14 +37,8 @@ def contact(request):
 
 @login_required
 def dashboard(request):
-    message_count = Message.objects.count()
-    user_count = User.objects.count()
-    recent_messages = Message.objects.order_by('-created_at')[:5]
-    return render(request, 'dashboard.html', {
-        'message_count': message_count,
-        'user_count': user_count,
-        'recent_messages': recent_messages,
-    })
+    messages = Message.objects.order_by('-created_at')[:10]
+    return render(request, 'dashboard.html', {'messages': messages})
 
 def register(request):
     if request.method == 'POST':

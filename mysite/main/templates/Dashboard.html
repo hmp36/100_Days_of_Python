@@ -24,6 +24,12 @@
             <li>No messages yet.</li>
         {% endfor %}
     </ul>
+    {% for message in messages %}
+    <div>
+        <strong>{{ message.name }}</strong> ({{ message.created_at|date:"F j, Y, g:i a" }})<br>
+        {{ message.content }}
+    </div>
+    {% endfor %}
     <a href="/">Back to Home</a>
     <a href="{% url 'logout' %}">Logout</a>
 </body>
