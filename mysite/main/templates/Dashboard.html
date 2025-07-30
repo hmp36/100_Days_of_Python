@@ -26,7 +26,8 @@
     </ul>
     {% for message in messages %}
     <div>
-        <strong>{{ message.name }}</strong> ({{ message.created_at|date:"F j, Y, g:i a" }})<br>
+        <strong>{{ message.name }}</strong>
+        <span style="color: #888;">({{ message.created_at|date:"F j, Y, g:i a" }})</span><br>
         {{ message.content }}
     </div>
     {% endfor %}
